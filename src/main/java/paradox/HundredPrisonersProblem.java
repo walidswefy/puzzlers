@@ -13,13 +13,14 @@ public class HundredPrisonersProblem {
 
     public static void main(String[] args) {
         int success = 0;
-        for (int i = 0; i < 10000; i++) {
+        int iterations = 10000;
+        for (int i = 0; i < iterations; i++) {
             Collections.shuffle(boxes);
             if (boxes.stream().allMatch(n -> runPrisoner(n))) {
                 success++;
             }
         }
-        System.out.println(success * 100.0 / 10000);
+        System.out.println(success * 100.0 / iterations);
     }
 
     private static boolean runPrisoner(final int prisonerNumber) {
